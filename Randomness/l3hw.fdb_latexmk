@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1614726131 "/Users/johnmarangola/Desktop/repos/Randomness/Randomness/l3hw.tex" "/Users/johnmarangola/Desktop/repos/Randomness/Randomness/l3hw.pdf" "l3hw" 1614726132
-  "/Users/johnmarangola/Desktop/repos/Randomness/Randomness/l3hw.aux" 1614726132 8 a94a2480d3289e625eea47cd1b285758 ""
-  "/Users/johnmarangola/Desktop/repos/Randomness/Randomness/l3hw.tex" 1614726131 3880 67c4ff1d6c48b012db61f984c4d7cee7 ""
+["pdflatex"] 1614727516 "/Users/johnmarangola/Desktop/repos/Randomness/Randomness/l3hw.tex" "/Users/johnmarangola/Desktop/repos/Randomness/Randomness/l3hw.pdf" "l3hw" 1614727517
+  "/Users/johnmarangola/Desktop/repos/Randomness/Randomness/l3hw.aux" 1614727517 8 a94a2480d3289e625eea47cd1b285758 ""
+  "/Users/johnmarangola/Desktop/repos/Randomness/Randomness/l3hw.tex" 1614727516 4473 868f2f6584bc6d0d3363d2bca725ce5a ""
   "/usr/local/texlive/2020/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -152,11 +152,11 @@
   "/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1599079299 5009067 316d4b9b3b1d2c07b66fba31906b4372 ""
   "/usr/local/texlive/2020/texmf-var/web2c/pdftex/pdflatex.fmt" 1599079376 2441172 f488439a20439d2aa869b9a7c2299cad ""
   "/usr/local/texlive/2020/texmf.cnf" 1586288231 577 d60164b4589a341208aff7a667fbbdcb ""
-  "l3hw.aux" 1614726132 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
-  "l3hw.tex" 1614726131 3880 67c4ff1d6c48b012db61f984c4d7cee7 ""
+  "l3hw.aux" 1614727517 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
+  "l3hw.tex" 1614727516 4473 868f2f6584bc6d0d3363d2bca725ce5a ""
   (generated)
+  "l3hw.aux"
+  "/Users/johnmarangola/Desktop/repos/Randomness/Randomness/l3hw.pdf"
+  "l3hw.pdf"
   "l3hw.log"
   "/Users/johnmarangola/Desktop/repos/Randomness/Randomness/l3hw.log"
-  "/Users/johnmarangola/Desktop/repos/Randomness/Randomness/l3hw.pdf"
-  "l3hw.aux"
-  "l3hw.pdf"
