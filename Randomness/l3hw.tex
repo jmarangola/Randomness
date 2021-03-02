@@ -66,17 +66,28 @@
             b(n, p, k) = \binom{n}{k}p^{k}\left(1-p\right)^{n-k}
         \end{equation}
         \begin{flushleft}
-            Assuming Latouch has the ability that she claims, the probability that Tawna wins the bet $P(X)$ is given by:
-        \end{flushleft}
-        \begin{align*}
-            P(X) &= \sum_{k=7}^{10}{b(10, 0.75, k)} = \sum_{k=7}^{10}{\binom{10}{k}(0.75)^{k}\left(0.25\right)^{10-k}} \\
-            &= \binom{10}{7}(0.75)^7 (0.25)^3 +\text{ ... } + \binom{10}{10}(0.75)^{10} \\
-            &= 0.7758750916 \approx 0.776
-        \end{align*}
-        \item[(b)] 
-            \begin{align*}
-                \Omega = \{1, 2, 3, 4, 5, 6, 7\} 
-            \end{align*}
         
+            Under the assumption that Latouch has the ability that she claims, the sample space $\Omega$ is given by the number of times Latouch guesses correctly:
+        \end{flushleft}
+        \begin{equation*}
+            \Omega = \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10\}, \text{ such that} \; m(\omega)=b(10, 0.75, \omega) \; \forall \omega\in\Omega 
+        \end{equation*}
+        \begin{flushleft}
+            Let $E_1$ be the event that Latouch wins the bet such that:
+        \end{flushleft}
+        \begin{center}
+            $E_1 = \{7, 8, 9, 10\}$
+        \end{center}
+        \begin{align*}
+            P(E_1) &= \sum_{k=7}^{10}{b(10, 0.75, k)} = \sum_{k=7}^{10}{\binom{10}{k}(0.75)^{k}\left(0.25\right)^{10-k}} \\
+            &= \binom{10}{7}(0.75)^7 (0.25)^3 +\text{ ... } + \binom{10}{10}(0.75)^{10} \\
+            P(E_1) &= 0.7758750916 \approx 0.776
+        \end{align*}
+        \item[(b)] Now, assume that Latouch is bluffing. If Latouch has no special ability, the probability that she makes a single guess correctly is 0.5. Likewise, the mean of the binomial distribution corresponding to the probabilities of X is given by $np=(10)(0.5)=5$. Letting $E_2$ be the event that Latouch loses the bet given that she is lying about her ability:
+        \begin{align*}
+            E_2 &= \{0, 1, 2, 3, 4, 5, 6\} \\
+            P(E_2) &= \sum_{i=0}^6 b(10, 0.5, i) =0.828125\approx 0.828
+        \end{align*}
     \end{enumerate}
+\section*{2.}
 \end{document}
