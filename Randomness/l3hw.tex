@@ -1,0 +1,82 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+% These three packages are from the American Mathematical Society and includes all of the important symbols and operations 
+\usepackage{fullpage}
+\usepackage{lipsum}
+\usepackage{xfrac}
+
+\usepackage{titlesec}
+\usepackage{tikz}
+\usepackage{mathtools}
+\usepackage{siunitx}
+\usepackage{changepage}
+\usepackage{cancel}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\tikzset{
+  treenode/.style = {align=center, inner sep=0pt, text centered,
+    font=\sffamily},
+  arn_n/.style = {treenode, circle, white, font=\sffamily\bfseries, draw=black,
+    fill=black, text width=1.5em},% arbre rouge noir, noeud noir
+  arn_r/.style = {treenode, circle, red, draw=red, 
+    text width=1.5em, very thick},% arbre rouge noir, noeud rouge
+  arn_x/.style = {treenode, circle, draw=black,
+    minimum width=1.5em, minimum height=0.5em}% arbre rouge noir, nil
+}
+
+
+\sisetup{output-exponent-marker=\ensuremath{\mathrm{e}}}
+% By default, an article has some vary large margins to fit the smaller page format.  This allows us to use more standard margins.
+
+%\setlength{\parskip}{1em}
+\setlength{\abovedisplayskip}{3pt}
+\setlength{\belowdisplayskip}{3pt}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\linespread{1.75}
+
+% This gives us a full line break when we write a new paragraph
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\title{Randomness and Computation: Written Problem Set 1}
+\author{John Marangola}
+\date{February 26, 2021}
+\begin{document}
+\maketitle
+
+%CONSTANTS USED FOR PHYSICS COMPUTATIONS MADE BY ME TO MAKE LIFE EASIER!
+% constant term for coulumb's law and electric field 1/4pi epsilon<0>:
+\newcommand{\ec}{\frac{1}{4\pi\epsilon_0}}
+%for problem 13:
+\newcommand{\qa}{\frac{q^2}{a^2}}
+% Standard basis vectors: ---------------->
+\newcommand{\ih}{\hat{i}}
+\newcommand{\jh}{\hat{j}}
+\newcommand{\kh}{\hat{k}}
+%--------------------------------------------------
+% Differentiation at a point:
+\newcommand{\at}[2][]{#1|_{#2}}
+\section*{1.}
+    \begin{enumerate}
+        \item[(a)]
+        \begin{equation}
+            b(n, p, k) = \binom{n}{k}p^{k}\left(1-p\right)^{n-k}
+        \end{equation}
+        \begin{flushleft}
+            Assuming Latouch has the ability that she claims, the probability that Tawna wins the bet $P(X)$ is given by:
+        \end{flushleft}
+        \begin{align*}
+            P(X) &= \sum_{k=7}^{10}{b(10, 0.75, k)} = \sum_{k=7}^{10}{\binom{10}{k}(0.75)^{k}\left(0.25\right)^{10-k}} \\
+            &= \binom{10}{7}(0.75)^7 (0.25)^3 +\text{ ... } + \binom{10}{10}(0.75)^{10} \\
+            &= 0.7758750916 \approx 0.776
+        \end{align*}
+        \item[(b)] 
+            \begin{align*}
+                \Omega = \{1, 2, 3, 4, 5, 6, 7\} 
+            \end{align*}
+        
+    \end{enumerate}
+\end{document}
