@@ -7,7 +7,7 @@
 \usepackage{fullpage}
 \usepackage{lipsum}
 \usepackage{xfrac}
-
+\usepackage{pgfplots}
 \usepackage{titlesec}
 \usepackage{tikz}
 \usepackage{mathtools}
@@ -16,15 +16,8 @@
 \usepackage{cancel}
 \usepackage{tikz}
 \usetikzlibrary{arrows}
-\tikzset{
-  treenode/.style = {align=center, inner sep=0pt, text centered,
-    font=\sffamily},
-  arn_n/.style = {treenode, circle, white, font=\sffamily\bfseries, draw=black,
-    fill=black, text width=1.5em},% arbre rouge noir, noeud noir
-  arn_r/.style = {treenode, circle, red, draw=red, 
-    text width=1.5em, very thick},% arbre rouge noir, noeud rouge
-  arn_x/.style = {treenode, circle, draw=black,
-    minimum width=1.5em, minimum height=0.5em}% arbre rouge noir, nil
+\pgfmathdeclarefunction{gauss}{2}{%
+  \pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}%
 }
 
 
@@ -95,7 +88,29 @@
     \end{flushleft}
     \begin{center}
         From eqn (1) above, \\
-        $\alpha(m) =  \sum\limits_{k=m}^{N}{b(N, p, k)}$
+        $\alpha(p) =  \sum\limits_{k=m}^{N}{b(N, p, k)}$, $\beta(p) = 1-\alpha(p)$\\
+    Since $\overline{x}=np$, for N = 10 trials, the scenario above may be illustrated as: 
+    \begin{tikzpicture}
+        \begin{axis}[
+          no markers, domain=2:10, samples=100,
+          axis lines*=left, xlabel=$X$, ylabel=$p$,
+          every axis y label/.style={at=(current axis.above origin),anchor=south},
+          every axis x label/.style={at=(current axis.right of origin),anchor=west},
+          height=6cm, width=12cm,
+          %xtick={51,6.5}, 
+          xtick={5, 7}, ytick=\empty,
+          enlargelimits=false, clip=false, axis on top,
+          grid = major
+          ]
+          \addplot [fill=cyan!20, draw=none, domain=6:6.75] {gauss(5,.55)}\closedcycle;
+          \addplot [fill=red!10, draw=none, domain=5:6] {gauss(7,.55)} \closedcycle;
+          \addplot [very thick,cyan!50!black] {gauss(5,.55)};
+          \addplot [very thick,cyan!50!black] {gauss(7,.55)};
+        \node at (420,25) {$\alpha$};
+        \node at (385,25) {$\beta$};
+        \end{axis}
+        
+        \end{tikzpicture}
     \end{center}
 
 \end{document}
