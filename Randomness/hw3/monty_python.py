@@ -13,11 +13,19 @@ def simulate(n):
                 continue
             potential_reveals.add(i)
         revealed = random.choice(list(potential_reveals))
-        #print(f"User choice: {user_initial_choice}, winning cat: {winning_cat}")
-        #print(f"Potential reveals: {potential_reveals}")
-        #print(f"revealed: {revealed}")
+        if len(potential_reveals) > 1: switch_to = list(potential_reveals.difference(set((revealed,))))[0]
+        else: switch_to = winning_cat
+        switch = random.randint(0, 1)
+        if switch:
+            nswitch += 1
+            switch_correct += (winning_cat == switch_to)
+        else:
+            stay_correct += (winning_cat == user_initial_choice)
+    print(f"Total trials: {n}")
+    print(f"Number of times user switched: {nswitch}, Number of times user stayed: {n-nswitch}")
+    print(f"Proportion of correct switches: {switch_correct/nswitch}\nProportion of correct stays: {stay_correct/(n-nswitch)}")
             
 if __name__ == "__main__":
-    simulate(10)
+    simulate(10000)
     
             
