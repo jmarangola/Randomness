@@ -1,26 +1,23 @@
 import random
 import math
 
-
-def run_simulation(n):
-    switch_tally, stay_tally = {"total":0, "correct":0}, {"total":0, "correct":0}
-    for i in range(n):
+            
+def simulate(n):
+    switch_correct, stay_correct, nswitch = 0, 0, 0
+    for j in range(n):
         winning_cat = random.randint(1, 3)
         user_initial_choice = random.randint(1, 3)
-        potential_reveals = []
+        potential_reveals = set()
         for i in range(1, 4):
-            if  i == user_initial_choice or i == winning_cat:
+            if i == user_initial_choice or i == winning_cat:
                 continue
-            potential_reveals.append(i)
-        revealed = random.choice(potential_reveals)
-        switch = random.range(0, 1)
-        if switch:
-            switch_tally["total"] += 1
+            potential_reveals.add(i)
+        revealed = random.choice(list(potential_reveals))
+        #print(f"User choice: {user_initial_choice}, winning cat: {winning_cat}")
+        #print(f"Potential reveals: {potential_reveals}")
+        #print(f"revealed: {revealed}")
             
-        else:
-            stay_tally["total"] += 1
-    
 if __name__ == "__main__":
-    run_simulation(1000)
+    simulate(10)
     
             
