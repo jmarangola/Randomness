@@ -6,8 +6,7 @@ Author: John Marangola
 """
 import random
 import math
-
-            
+     
 def simulate(n):
     """Monte Carlo Simulation for n trials of the Monte Python Problem
     Args:
@@ -22,14 +21,14 @@ def simulate(n):
             if i == user_initial_choice or i == winning_cat: # Cannot reveal correct cat or users initial choice--the attacker likes to play with their food
                 continue
             potential_reveals.add(i)
+        # Randomly choosing which Cat the attacker decides to reveal (iff there exists a choice)
         revealed = random.choice(list(potential_reveals))
-        # Determine the user's potential switched guess (if simulation decides user switches below) 
-        if len(potential_reveals) > 1:
-            switch_to = list(potential_reveals.difference(set((revealed,))))[0]
-        else: 
-            switch_to = winning_cat
-        switch = random.randint(0, 1) # Randomly simulate decision to switch
+        # Randomly simulate the user's decision to switch
+        switch = random.randint(0, 1) 
         if switch:
+            # Determine the user's switched guess
+            if len(potential_reveals) > 1: switch_to = list(potential_reveals.difference(set((revealed,))))[0]
+            else:  switch_to = winning_cat
             nswitch += 1
             switch_correct += (winning_cat == switch_to)
         else:
