@@ -38,16 +38,31 @@ def double_variant(l, k):
     counter += 1
     length = len(l)
     min_pivot, max_pivot = sorted(random.sample(l, 2))
-    first, mid, last  = [], [], []
+    smaller, mid, larger  = [], [], []
     for element in l:
         if element < min_pivot:
-            first.append(element)
+            smaller.append(element)
         elif min_pivot < element < max_pivot:
             mid.append(element)
         elif element > max_pivot:
-            last.append(element)
+            larger.append(element)
             
     # perform quickselect variation with two pivots
+    len_smaller, len_mid, len_larger = len(smaller), len(mid), len(larger)
+    if len_larger == k-1:
+        return max_pivot
+    elif len_larger + len_mid == k-1:
+        return min_pivot
+    elif k <= len_larger:
+        # its in the larger subarray
+        pass
+    elif k > len_larger + len_mid + 2:
+        # recurse smaller subarray
+        pass
+    else:
+        # recurse mid subarrau
+        pass
+        
 
 
 if __name__ == "__main__":
