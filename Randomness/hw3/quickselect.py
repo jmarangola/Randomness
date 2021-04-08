@@ -36,6 +36,8 @@ def quickselect(l, k):
 def double_variant(l, k):
     global counter
     counter += 1
+    if len(l) == 1 and k ==1:
+        return l[0]
     length = len(l)
     min_pivot, max_pivot = sorted(random.sample(l, 2))
     smaller, mid, larger  = [], [], []
@@ -51,21 +53,21 @@ def double_variant(l, k):
     len_smaller, len_mid, len_larger = len(smaller), len(mid), len(larger)
     if len_larger == k-1:
         return max_pivot
-    elif len_larger + len_mid == k-1:
+    elif len_larger + len_mid == k - 2:
         return min_pivot
     elif k <= len_larger:
         # its in the larger subarray
-        pass
+        return double_variant(larger, k)
     elif k > len_larger + len_mid + 2:
         # recurse smaller subarray
-        pass
+        return double_variant(smaller, k - (len_larger + len_mid + 2))
     else:
-        # recurse mid subarrau
-        pass
-        
+        # recurse mid subarray
+        return double_variant(mid, k - (len_larger + 1))
 
 
 if __name__ == "__main__":
-    arr = list(range(10))
-    print(quickselect(arr, 2))
-    print(f"n calls: {counter}")   
+    arr = [1, 2, 3, 4, 5, 6, 8]
+    for i in range(50):
+        print(f"result: {double_variant(arr, 4)}")
+    
