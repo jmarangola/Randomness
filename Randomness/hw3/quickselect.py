@@ -68,6 +68,14 @@ def double_variant(l, k):
 
 if __name__ == "__main__":
     arr = [1, 2, 3, 4, 5, 6, 8]
-    for i in range(50):
-        print(f"result: {double_variant(arr, 4)}")
+    n = 20000
+    sum_ = 0
+    for i in range(n):
+        counter = 0
+        double_variant(arr, 2)
+        sum_ += counter
+    print(f"avg recursions: {sum_/n}")
+        
+        
+    
     
