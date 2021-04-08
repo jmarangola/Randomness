@@ -1,15 +1,23 @@
-def quickselect(l, k) :
+import random
+
+counter = 0
+def quickselect(l, k):
+    global counter
+    counter += 1
     length = len(l)
     # Pick a random pivot element from the list, each
     # equally likely
-    # pivot = [...]
+    pivot = random.choice(l)
+    print(f"pivot: {pivot}")
     l_small = []
     l_big = []
-    
     # Put all elements smaller than pivot into l_small, and all
-    # # larger elements into l_big.
-    # [...]
-    
+    # larger elements into l_big.
+    for element in l:
+        if element < pivot:
+            l_small.append(element)
+        elif element > pivot:
+            l_big.append(element)
     # We assume all elements are distinct, so (besides the pivot) every element# should go into l_small or l_big
     assert(length == len(l_small) + len(l_big) + 1)
     
@@ -23,3 +31,17 @@ def quickselect(l, k) :
         return res
     else:
         return pivot
+    
+# Two pivot quickselect variant
+def double_variant(l, k):
+    global counter
+    counter += 1
+    length = len(l)
+    first_pivot, second_pivot = random.sample(l, 2)
+    l_small, l_big,  = [], []    
+
+
+if __name__ == "__main__":
+    arr = list(range(10))
+    print(quickselect(arr, 2))
+    print(f"n calls: {counter}")   
