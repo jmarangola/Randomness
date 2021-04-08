@@ -8,7 +8,6 @@ def quickselect(l, k):
     # Pick a random pivot element from the list, each
     # equally likely
     pivot = random.choice(l)
-    print(f"pivot: {pivot}")
     l_small = []
     l_big = []
     # Put all elements smaller than pivot into l_small, and all
@@ -66,15 +65,34 @@ def double_variant(l, k):
         return double_variant(mid, k - (len_larger + 1))
 
 
+ 
+        
+            
+            
+    
 if __name__ == "__main__":
-    arr = [1, 2, 3, 4, 5, 6, 8]
-    n = 20000
-    sum_ = 0
-    for i in range(n):
-        counter = 0
-        double_variant(arr, 2)
-        sum_ += counter
-    print(f"avg recursions: {sum_/n}")
+    n_elements = 125
+    k = 50
+    n_simulations = 20000
+    n_pivots = 2
+    print("Beginning Monte Carlo Simulation...")
+    
+    l = list(range(1, n_elements+1))
+    sum_ = 0 
+    if n_pivots == 1:
+        for i in range(n_simulations):
+            counter = 0
+            quickselect(l, k)
+            sum_ += counter
+        print(sum_/n_simulations)
+    elif n_pivots == 2:
+        for i in range(n_simulations):
+            counter = 0
+            double_variant(l, k)
+            sum_ += counter
+        print(sum_/n_simulations)
+    else:
+        print("Error, invalid number of pivots selected")
         
         
     
