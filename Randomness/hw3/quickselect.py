@@ -37,8 +37,17 @@ def double_variant(l, k):
     global counter
     counter += 1
     length = len(l)
-    first_pivot, second_pivot = random.sample(l, 2)
-    l_small, l_big,  = [], []    
+    min_pivot, max_pivot = sorted(random.sample(l, 2))
+    first, mid, last  = [], [], []
+    for element in l:
+        if element < min_pivot:
+            first.append(element)
+        elif min_pivot < element < max_pivot:
+            mid.append(element)
+        elif element > max_pivot:
+            last.append(element)
+            
+    # perform quickselect variation with two pivots
 
 
 if __name__ == "__main__":
