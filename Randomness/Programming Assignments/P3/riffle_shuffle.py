@@ -113,9 +113,8 @@ def monte_carlo_simulation(n, i, j, k, N=10000, simulation_type="gsr", running_o
             for y in range(k):
                 temp = gsr(temp)
             n_ifirst_gsr += int(test_order(i, j, temp))
-            if running_output_on: print(f"Percent Complete {100*(x+1)/10000}")
+            if running_output_on: print(f"Percent Complete {100 * (x + 1) / 10000}")
         print(f"Riffle-Shuffle:\nProb. of i ({i}) before j ({j}): {n_ifirst_gsr/N} | Prob. j ({j}) before i ({i}): {(N - n_ifirst_gsr)/N}")
        
-
 if __name__ == "__main__":
-    monte_carlo_simulation(10, 0, 1, 1, simulation_type="gsr")
+    monte_carlo_simulation(15, 2, 3, 4, simulation_type="gsr")
