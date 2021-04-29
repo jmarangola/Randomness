@@ -2,14 +2,21 @@
         Randomness and Computation 
         Professor McTague
         4/28/2021
-        Riffle Shuffle
+        Riffle Shuffle Analysis Programming Assignment
 """
 
 import random
 import os
 
-# An intuituve implementation Gilbert-Shannon-Reeds model to simulate human riffle shuffling
 def slow_gsr(l):
+    """ An intuituve implementation Gilbert-Shannon-Reeds model to simulate human riffle shuffling
+
+    Args:
+        l (list): Unshuffled deck of cards
+
+    Returns:
+        [list]: Shuffled deck of cards after a single iteration
+    """
     size = len(l)
     random_seq, left, right, riffle = [], [], [], []
     n_right = 0
@@ -28,8 +35,16 @@ def slow_gsr(l):
             riffle.append(left.pop(0))
     return riffle
 
-# An optimized GSR simulation model for monte-carlo simulation
+
 def gsr(l):
+    """ An more optimized GSR implementation to simulate riffle-shuffling of an len(l) size deck of cards
+
+    Args:
+        l (list): Unshuffled deck of cards
+
+    Returns:
+        [list]: Shuffled deck of cards after a single GSR iteration
+    """
     size = len(l)
     random_seq, riffle = [], []
     n_right = 0
@@ -49,19 +64,27 @@ def gsr(l):
             start_left += 1        
     return riffle
     
-# Top-to-Random shuffle, a simplistic shuffling method placing top card in a random position
+
 def top_to_random(l):
+    """ Top-to-Random shuffle, a simplistic shuffling method placing top card in a random position
+
+    Args:
+        l (list): Unshuffled deck of cards
+
+    Returns:
+        [list]: Shuffled deck of cards
+    """
     cards = l.copy()
     top = cards.pop(0)
     cards.insert(random.randint(0, len(cards)), top)
     return cards
 
-# Returns true if i comes before j
+# Returns true if i comes before j in l
 def test_order(i, j, l):
     return (l.index(i) < l.index(j))
 
 def monte_carlo_simulation(n, i, j, k, N=10000, simulation_type="gsr", running_output_on=True):
-    """Simulate the outcome of N shuffles using either GSR or Top-to-Random Shuffling
+    """ Simulate the outcome of N shuffles using either GSR or Top-to-Random Shuffling
 
     Args:
         n (int): Size of deck 
@@ -83,7 +106,7 @@ def monte_carlo_simulation(n, i, j, k, N=10000, simulation_type="gsr", running_o
             for y in range(k):
                 temp = top_to_random(temp)
             n_ifirst_top += int(test_order(i, j, temp))
-        print(f"Top to Random:\nProp. i first ({i}): {n_ifirst_top/N} | Prop. j first ({j}): {(N - n_ifirst_top)/N}")
+        print(f"Top to Random:\nProb. i ({i}) before j ({j}): {n_ifirst_top/N} | Prob. j ({j}) before i ({i}): {(N - n_ifirst_top)/N}")
     elif simulation_type == "gsr":
         for x in range(N):
             temp = list(range(n))
@@ -91,7 +114,7 @@ def monte_carlo_simulation(n, i, j, k, N=10000, simulation_type="gsr", running_o
                 temp = gsr(temp)
             n_ifirst_gsr += int(test_order(i, j, temp))
             if running_output_on: print(f"Percent Complete {100*(x+1)/10000}")
-        print(f"Riffle-Shuffle:\nProp. i first ({i}): {n_ifirst_gsr/N} | Prop. j first ({j}): {(N - n_ifirst_gsr)/N}")
+        print(f"Riffle-Shuffle:\nProb. of i ({i}) before j ({j}): {n_ifirst_gsr/N} | Prob. j ({j}) before i ({i}): {(N - n_ifirst_gsr)/N}")
        
 
 if __name__ == "__main__":
